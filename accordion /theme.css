@@ -1,0 +1,28 @@
+/* External CSS Theme for Accordion Component */
+/* This demonstrates how to theme the accordion using CSS custom properties */
+
+/* Blue Theme */
+.blue-theme {
+  --accordion-border-color: #2563eb;
+  --accordion-header-bg: #dbeafe;
+  --accordion-header-hover-bg: #bfdbfe;
+  --accordion-title-color: #1e40af;
+  --accordion-icon-color: #2563eb;
+  --accordion-focus-color: #3b82f6;
+  --accordion-body-color: #1e3a8a;
+}
+
+/* Dark Theme */
+.dark-theme {
+  --accordion-border-color: #374151;
+  --accordion-header-bg: #1f2937;
+  --accordion-header-hover-bg: #374151;
+  --accordion-title-color: #f3f4f6;
+  --accordion-icon-color: #9ca3af;
+  --accordion-focus-color: #60a5fa;
+  --accordion-body-color: #d1d5db;
+  --accordion-body-padding: 20px;
+}
+
+/* You can create more themes by defining custom properties */
+/* Example: Green Theme, Purple Theme, etc. */
