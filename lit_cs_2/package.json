@@ -1,0 +1,58 @@
+{
+  "name": "@pranavjeet_mishra/rating-component",
+  "version": "1.0.0",
+  "description": "A professional star rating web component built with Lit, TypeScript, and Shadow DOM",
+  "type": "module",
+  "main": "./dist/rating-component.js",
+  "module": "./dist/rating-component.js",
+  "types": "./dist/rating-component.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/rating-component.js",
+      "types": "./dist/rating-component.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:lib": "vite build --config vite.config.lib.ts",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "keywords": [
+    "lit",
+    "web-component",
+    "rating",
+    "stars",
+    "typescript",
+    "shadow-dom",
+    "custom-element",
+    "rating-component",
+    "star-rating",
+    "web-components"
+  ],
+  "author": "Pranavjeet Mishra <pranavjee.m@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pranavjeet123/rating-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pranavjeet123/rating-component/issues"
+  },
+  "homepage": "https://github.com/pranavjeet123/rating-component#readme",
+  "dependencies": {
+    "lit": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "peerDependencies": {
+    "lit": "^3.0.0"
+  }
+}

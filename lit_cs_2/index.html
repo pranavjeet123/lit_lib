@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating Component - Lit Web Component Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 60px;
+      }
+
+      .header h1 {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .header p {
+        font-size: 20px;
+        opacity: 0.9;
+      }
+
+      .demo-section {
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .demo-section h2 {
+        font-size: 28px;
+        color: #1f2937;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 3px solid #667eea;
+      }
+
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .demo-item {
+        padding: 24px;
+        background: #f9fafb;
+        border-radius: 16px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+      }
+
+      .demo-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        border-color: #667eea;
+      }
+
+      .demo-item h3 {
+        font-size: 18px;
+        color: #374151;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .demo-item p {
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 16px;
+        line-height: 1.6;
+      }
+
+      .demo-showcase {
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80px;
+      }
+
+      .code-section {
+        background: #1f2937;
+        color: #f9fafb;
+        border-radius: 16px;
+        padding: 24px;
+        margin-top: 20px;
+      }
+
+      .code-section pre {
+        overflow-x: auto;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .code-section code {
+        color: #a5b4fc;
+      }
+
+      .event-log {
+        background: #f9fafb;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+
+      .event-log h3 {
+        font-size: 16px;
+        color: #374151;
+        margin-bottom: 12px;
+      }
+
+      .event-item {
+        padding: 8px 12px;
+        background: white;
+        border-left: 3px solid #667eea;
+        margin-bottom: 8px;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #4b5563;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .feature-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 24px;
+        border-radius: 16px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: scale(1.05);
+      }
+
+      .feature-card h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .feature-card p {
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 32px;
+        }
+
+        .demo-section {
+          padding: 24px;
+        }
+
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>⭐ Rating Component</h1>
+        <p>A professional Lit Web Component with TypeScript & Shadow DOM</p>
+      </div>
+
+      <!-- Features Section -->
+      <div class="demo-section">
+        <h2>🚀 Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>⚡ Lit Framework</h3>
+            <p>Fast, lightweight web components</p>
+          </div>
+          <div class="feature-card">
+            <h3>🔷 TypeScript</h3>
+            <p>Type-safe development</p>
+          </div>
+          <div class="feature-card">
+            <h3>🎨 CSS3</h3>
+            <p>Modern styling & animations</p>
+          </div>
+          <div class="feature-card">
+            <h3>🌓 Shadow DOM</h3>
+            <p>Encapsulated styles</p>
+          </div>
+          <div class="feature-card">
+            <h3>♿ Accessible</h3>
+            <p>ARIA & keyboard navigation</p>
+          </div>
+          <div class="feature-card">
+            <h3>📱 Responsive</h3>
+            <p>Works on all devices</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Demos -->
+      <div class="demo-section">
+        <h2>🎮 Interactive Demos</h2>
+        
+        <div class="demo-grid">
+          <!-- Default -->
+          <div class="demo-item">
+            <h3>Default Rating</h3>
+            <p>Standard 5-star rating with label</p>
+            <div class="demo-showcase">
+              <rating-component value="0"></rating-component>
+            </div>
+          </div>
+
+          <!-- Pre-filled -->
+          <div class="demo-item">
+            <h3>Pre-filled Rating</h3>
+            <p>Component with initial value</p>
+            <div class="demo-showcase">
+              <rating-component value="3.5"></rating-component>
+            </div>
+          </div>
+
+          <!-- Large Size -->
+          <div class="demo-item">
+            <h3>Large Stars</h3>
+            <p>Bigger stars for emphasis</p>
+            <div class="demo-showcase">
+              <rating-component value="4" size="large"></rating-component>
+            </div>
+          </div>
+
+          <!-- Small Size -->
+          <div class="demo-item">
+            <h3>Small Stars</h3>
+            <p>Compact version</p>
+            <div class="demo-showcase">
+              <rating-component value="2.5" size="small"></rating-component>
+            </div>
+          </div>
+
+          <!-- No Label -->
+          <div class="demo-item">
+            <h3>Without Label</h3>
+            <p>Stars only, no text label</p>
+            <div class="demo-showcase">
+              <rating-component value="4" show-label="false"></rating-component>
+            </div>
+          </div>
+
+          <!-- Readonly -->
+          <div class="demo-item">
+            <h3>Read-only Mode</h3>
+            <p>Display-only rating</p>
+            <div class="demo-showcase">
+              <rating-component value="5" readonly></rating-component>
+            </div>
+          </div>
+
+          <!-- Custom Max -->
+          <div class="demo-item">
+            <h3>10-Star Rating</h3>
+            <p>Custom maximum stars</p>
+            <div class="demo-showcase">
+              <rating-component value="7" max-rating="10" size="small"></rating-component>
+            </div>
+          </div>
+
+          <!-- 3-Star Rating -->
+          <div class="demo-item">
+            <h3>3-Star Rating</h3>
+            <p>Simplified rating scale</p>
+            <div class="demo-showcase">
+              <rating-component value="2" max-rating="3" size="large"></rating-component>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Listener Demo -->
+        <div style="margin-top: 40px;">
+          <h3 style="font-size: 20px; color: #1f2937; margin-bottom: 20px;">🎯 Event Listener Demo</h3>
+          <div class="demo-showcase">
+            <rating-component id="event-demo" value="0"></rating-component>
+          </div>
+          <div class="event-log">
+            <h3>Event Log</h3>
+            <div id="event-log-content">
+              <p style="color: #9ca3af; font-size: 14px;">Click the stars above to see events...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Examples -->
+      <div class="demo-section">
+        <h2>📝 Usage Examples</h2>
+        
+        <div class="code-section">
+          <h3 style="margin-bottom: 16px;">HTML</h3>
+          <pre><code>&lt;!-- Basic usage --&gt;
+&lt;rating-component value="3"&gt;&lt;/rating-component&gt;
+
+&lt;!-- With custom attributes --&gt;
+&lt;rating-component 
+  value="4" 
+  max-rating="5" 
+  size="large"
+  show-label="true"
+&gt;&lt;/rating-component&gt;
+
+&lt;!-- Read-only display --&gt;
+&lt;rating-component value="4.5" readonly&gt;&lt;/rating-component&gt;</code></pre>
+        </div>
+
+        <div class="code-section">
+          <h3 style="margin-bottom: 16px;">JavaScript / TypeScript</h3>
+          <pre><code>// Listen to rating changes
+const rating = document.querySelector('rating-component');
+rating.addEventListener('rating-change', (e) => {
+  console.log('New rating:', e.detail.value);
+  console.log('Old rating:', e.detail.oldValue);
+});
+
+// Set value programmatically
+rating.value = 4;
+
+// Get current value
+console.log(rating.value);</code></pre>
+        </div>
+
+        <div class="code-section">
+          <h3 style="margin-bottom: 16px;">NPM Installation</h3>
+          <pre><code>npm install @your-username/rating-component
+
+// Then import in your project
+import '@your-username/rating-component';</code></pre>
+        </div>
+      </div>
+
+      <!-- API Documentation -->
+      <div class="demo-section">
+        <h2>📚 API Documentation</h2>
+        
+        <h3 style="font-size: 20px; color: #374151; margin-top: 24px; margin-bottom: 16px;">Properties</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: #f9fafb; border-bottom: 2px solid #e5e7eb;">
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Property</th>
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Type</th>
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Default</th>
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 12px;"><code>value</code></td>
+              <td style="padding: 12px;">number</td>
+              <td style="padding: 12px;">0</td>
+              <td style="padding: 12px;">Current rating value</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 12px;"><code>max-rating</code></td>
+              <td style="padding: 12px;">number</td>
+              <td style="padding: 12px;">5</td>
+              <td style="padding: 12px;">Maximum number of stars</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 12px;"><code>readonly</code></td>
+              <td style="padding: 12px;">boolean</td>
+              <td style="padding: 12px;">false</td>
+              <td style="padding: 12px;">Disable interactions</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 12px;"><code>size</code></td>
+              <td style="padding: 12px;">string</td>
+              <td style="padding: 12px;">'medium'</td>
+              <td style="padding: 12px;">Size: 'small', 'medium', 'large'</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px;"><code>show-label</code></td>
+              <td style="padding: 12px;">boolean</td>
+              <td style="padding: 12px;">true</td>
+              <td style="padding: 12px;">Show/hide rating label</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size: 20px; color: #374151; margin-top: 32px; margin-bottom: 16px;">Events</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: #f9fafb; border-bottom: 2px solid #e5e7eb;">
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Event</th>
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Detail</th>
+              <th style="padding: 12px; text-align: left; font-weight: 600;">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 12px;"><code>rating-change</code></td>
+              <td style="padding: 12px;">{ value: number, oldValue: number }</td>
+              <td style="padding: 12px;">Fired when rating value changes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script type="module" src="/src/rating-component.ts"></script>
+    <script type="module">
+      // Event listener demo
+      const eventDemo = document.getElementById('event-demo');
+      const eventLogContent = document.getElementById('event-log-content');
+      
+      eventDemo.addEventListener('rating-change', (e) => {
+        const eventItem = document.createElement('div');
+        eventItem.className = 'event-item';
+        const timestamp = new Date().toLocaleTimeString();
+        eventItem.innerHTML = `
+          <strong>${timestamp}</strong> - Rating changed from 
+          <strong>${e.detail.oldValue}</strong> to 
+          <strong style="color: #667eea;">${e.detail.value}</strong>
+        `;
+        eventLogContent.prepend(eventItem);
+        
+        // Keep only last 5 events
+        while (eventLogContent.children.length > 5) {
+          eventLogContent.removeChild(eventLogContent.lastChild);
+        }
+      });
+    </script>
+  </body>
+</html>

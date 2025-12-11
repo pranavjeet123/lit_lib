@@ -1,0 +1,25 @@
+/**
+ * External CSS for Rating Component
+ * Demonstrates theming with CSS variables
+ * Users can override these to customize the component
+ */
+
+/* Default theme */
+:host {
+  --rating-star-color: #fbbf24;  /* Golden yellow */
+}
+
+/* Red theme variant */
+:host(.theme-red) {
+  --rating-star-color: #ef4444;
+}
+
+/* Green theme variant */
+:host(.theme-green) {
+  --rating-star-color: #10b981;
+}
+
+/* Blue theme variant */
+:host(.theme-blue) {
+  --rating-star-color: #3b82f6;
+}

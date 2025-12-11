@@ -1,0 +1,36 @@
+# .npmignore - Files to exclude from npm package
+
+# Source files
+src/
+public/
+*.css
+*.html
+!dist/
+
+# Config files
+vite.config.ts
+vite.config.lib.ts
+tsconfig.json
+.gitignore
+
+# Documentation (keep README.md)
+INTERVIEW_GUIDE.md
+
+# Development files
+node_modules/
+.vscode/
+.idea/
+
+# Build artifacts (except dist)
+*.log
+*.tsbuildinfo
+
+# Testing
+*.test.ts
+*.spec.ts
+__tests__/
+coverage/
+
+# Git
+.git/
+.github/
